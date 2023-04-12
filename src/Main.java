@@ -2,11 +2,12 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Main {
+
+    private static Employee[] employees = new Employee[10];
     public static void main(String[] args) {
 
-        Employee[] employees = new Employee[10];
         for (int i = 0; i < employees.length; i++) {
-            employees[i] = new Employee ("Петров Петр Петрович" + i, 1+ (i % 5), 10000 * (i + 1));
+            employees[i] = new Employee ("Петров Петр Петрович" + i, 1 + (i % 5), 10000 * (i + 1));
         }
         System.out.println ("Сотрудники компании");
         printEmployees (employees);
@@ -15,15 +16,26 @@ public class Main {
         System.out.println ("Сумма затрат на зарплату = " + calculateTotalSalary (employees));
 
         Employee employeeWithMinSalary = getEmployeeWithMinSalary (employees);
-        System.out.println ("Сотрудник с минимальной зарплатой = " + employeeWithMinSalary());
+        System.out.println ("Сотрудник с минимальной зарплатой = " + employeeWithMinSalary);
 
         Employee employeeWithMaxSalary = getEmployeeWithMaxSalary (employees);
-        System.out.println ("Сотрудник с максимальной зарплатой = " + employeeWithMaxSalary());
+        System.out.println ("Сотрудник с максимальной зарплатой = " + employeeWithMaxSalary);
+
+        double averageSalary = calculateAverageSalary (employees);
+        System.out.println ("Средняя зарплата = " + averageSalary);
+
+        System.out.println ("ФИО сотрудников: ");
+        printFullNameEmployees (employees);
+
+
 
         for (int i = 0; i < employees.length; i++) {
             System.out.println (employees[i]);
         }
 
+    }
+
+    private static void printFullNameEmployees(Employee[] employees) {
     }
 
     private static void printEmployees(Employee[] employees) {
@@ -66,5 +78,9 @@ public class Main {
         return result;
     }
 
+    private static double calculateAverageSalary(Employee[] employees) {
+        int totalSalary = calculateTotalSalary (employees);
+        return (double) totalSalary / employees.length;
+    }
 
 }
