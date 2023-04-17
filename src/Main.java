@@ -4,12 +4,25 @@ import java.util.Arrays;
 public class Main {
 
     private static Employee[] employees = new Employee[10];
+
     public static void main(String[] args) {
 
-        for (int i = 0; i < employees.length; i++) {
-            employees[i] = new Employee ("Петров Петр Петрович" + i, 1 + (i % 5), 10000 * (i + 1));
-        }
-        System.out.println ("Сотрудники компании");
+        employees[0] = new Employee ("Петров Петр Петрович" , 1 , 10000);
+        employees[1] = new Employee ("Иванов Иван Иванович" , 1 , 10000);
+        employees[2] = new Employee ("Сидоров Сидор Сидорович" , 1 , 10000);
+        employees[3] = new Employee ("Николаев Николай Николаевич" , 1 , 10000);
+        employees[4] = new Employee ("Пупкин Степан Аркадьевич" , 1 , 10000);
+        employees[5] = new Employee ("Евдокимов Евдоким Евдокимович" , 1, 10000);
+        employees[6] = new Employee ("Захаров Захар Закорович" , 1 , 10000);
+        employees[7] = new Employee ("Никитин Никита Никитович" , 1 , 10000);
+        employees[8] = new Employee ("Кривошеев Сергей Анатольевич" , 1 , 10000 );
+        employees[9] = new Employee ("Петровский Александр Владимирович" , 1 , 10000);
+
+
+        for (Employee i : employees){
+            System.out.println (i);
+
+}
         printEmployees (employees);
 
         int totalSalary = calculateTotalSalary (employees);
